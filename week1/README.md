@@ -165,3 +165,87 @@ VD tạo prompt với nội dung đơn giản GenAI là gì? và chạy
 `ex01.py`
 
 AIzaSyCrjiRgdxT7oKS2jFPpLrzYocbuWOJLE4
+
+## 🧩 1. Cấu trúc conversation trong Gemini
+
+Gemini dùng cấu trúc **Content + role + parts**
+
+Các role chính:
+
+|Role	|Ý nghĩa|
+|--|--|
+|user	|Người dùng|
+|model	|Câu trả lời của AI|
+|system	|Luật / vai trò / hướng dẫn|
+
+## 🟢 2. Ví dụ chat 2 lượt (CƠ BẢN NHẤT)
+
+`ex02.py`
+
+👉 Model **hiểu đúng ngữ cảnh** vì có lịch sử.
+
+## 🧠 3. Tư duy ĐÚNG khi làm conversation history
+
+```
+🔑 Conversation history = danh sách message
+```
+
+- Bạn tự lưu
+- Bạn tự append
+- API KHÔNG tự nhớ
+
+## 🟢 4. Chat nhiều lượt động (GIỐNG CHATBOT)
+
+`ex03.py`
+
+👉 Đây là **chatbot CLI thật sự.**
+
+## 🧪 5. Test thử
+
+```
+You: GenAI là gì?
+AI: ...
+
+You: giải thích cho học sinh lớp 10
+AI: ...
+
+You: cho ví dụ trong đời sống
+AI: ...
+```
+
+👉 AI **hiểu mạch hội thoại**
+
+## 🧠 6. Thêm SYSTEM PROMPT (RẤT QUAN TRỌNG)
+
+`ex04.py`
+
+```
+history = [
+    types.Content(
+        role="system",
+        parts=[types.Part.from_text(
+            "Bạn là trợ giảng AI, giải thích đơn giản, dùng tiếng Việt."
+        )]
+    )
+]
+```
+
+👉 SYSTEM:
+
+- đặt vai trò
+- quyết định phong cách
+- ảnh hưởng toàn bộ cuộc chat
+
+## 🚀 BƯỚC TIẾP THEO RẤT HỢP LÝ
+
+Bạn vừa học xong **conversation history 🎉**
+
+Giờ nên học tiếp:
+
+1️⃣ Prompt engineering (system vs user)
+
+2️⃣ Streaming (in từng token)
+
+3️⃣ Giới hạn context & token
+
+4️⃣ Mini chatbot có reset / save history
